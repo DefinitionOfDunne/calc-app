@@ -1,32 +1,32 @@
 <div class="content" role="main">
   <div class="calc-container">
     <div class="output">
-      <div class="previous-operand"></div>
-      <div class="current-operand"></div>
+      <div class="first-operand">{{firstOperand}} {{operator}}</div>
+      <div class="second-operand">{{secondOperand}}</div>
     </div>
-    <button class="span-two">AC</button>
+    <button class="span-two" (click)="allClear()">AC</button>
     <button>DEL</button>
-    <button>÷</button>
-    <button>1</button>
-    <button>2</button>
-    <button>3</button>
-    <button>*</button>
-    <button>4</button>
-    <button>5</button>
-    <button>6</button>
-    <button>+</button>
-    <button>7</button>
-    <button>8</button>
-    <button>9</button>
-    <button>-</button>
-    <button>.</button>
-    <button>0</button>
-    <button class="span-two">=</button>
-
+    <button (click)="insertOperator('÷')">÷</button>
+    <button (click)="insertNumber('1')">1</button>
+    <button (click)="insertNumber('2')">2</button>
+    <button (click)="insertNumber('3')"> 3</button>
+    <button (click)="insertOperator('*')">*</button>
+    <button (click)="insertNumber('4')">4</button>
+    <button (click)="insertNumber('5')">5</button>
+    <button (click)="insertNumber('6')">6</button>
+    <button (click)="insertOperator('+')">+</button>
+    <button (click)="insertNumber('7')">7</button>
+    <button (click)="insertNumber('8')">8</button>
+    <button (click)="insertNumber('9')">9</button>
+    <button (click)="insertOperator('-')">-</button>
+    <button disabled>.</button>
+    <button (click)="insertNumber('0')">0</button>
+    <button [disabled]="!firstOperand" class="span-two" (click)="runCalculation()">=</button>
     <div class="output">
-      <div class="previous-operand">123 +</div>
-      <div class="current-operand">456</div>
+      <div class="second-operand">{{calculation}}</div>
     </div>
+
+   
   </div>
 
   <router-outlet></router-outlet>
